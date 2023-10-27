@@ -1,17 +1,25 @@
 package com.jjg.ejercicio08.screens.login
 
+import android.util.Log
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -46,13 +54,37 @@ fun LoginScreen(navController: NavController) {
             if (showLoginForm.value) {
                 Text(text = "Iniciar sesión")
                 UserForm(isCreateAccount = false) { email, password ->
+                    Log.d("My Login", "Logueando con $email y $password")
                 }
             } else {
                 Text(text = "Crear una cuenta")
                 UserForm(isCreateAccount = true) { email, password ->
+                    Log.d("My Login", "Logueando con $email y $password")
+
+
                 }
             }
 
+            Spacer(modifier = Modifier.height(15.dp))
+
+            Row(
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                val text1 = if (showLoginForm.value) "¿No tienes cuenta?"
+                else "Ya tienes cuenta?"
+
+                val text2 = if (showLoginForm.value) "Registrate"
+                else "Inicia sesión"
+
+                Text(text = text1)
+                Text(text = text2,
+                    modifier = Modifier
+                        .clickable { showLoginForm.value = !showLoginForm.value }
+                        .padding(start = 5.dp),
+                    color = MaterialTheme.colorScheme.secondary)
+
+            }
         }
     }
 }
@@ -67,7 +99,7 @@ fun UserForm(
     val password = rememberSaveable { mutableStateOf("") }
     val passwordVisible = rememberSaveable { mutableStateOf(false) }
     val keyboardController = LocalSoftwareKeyboardController.current
-    val valido = remember(email.value,password.value){
+    val valido = remember(email.value, password.value) {
         email.value.trim().isNotEmpty() && password.value.trim().isNotEmpty()
     }
 
@@ -93,10 +125,23 @@ fun UserForm(
 @Composable
 fun SubmitButton(
     textId: String,
-    inputValido: Any,
-    content: @Composable () -> Unit?
+    inputValido: Boolean,
+    onClic: () -> Unit
 ) {
-
+    Button(
+        onClick = onClic,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(3.dp),
+        shape = CircleShape,
+        enabled = inputValido
+    ) {
+        Text(
+            text = textId,
+            modifier = Modifier
+                .padding(5.dp)
+        )
+    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
