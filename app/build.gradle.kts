@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -67,6 +69,18 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
+    //Hilt
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+
+    //Iconos extendidos
     implementation("androidx.compose.material:material-icons-extended:1.5.3")
+
+    //Firebase Services
+    implementation(platform("com.google.firebase:firebase-bom:32.4.0"))
+    implementation("com.google.firebase:firebase-auth-ktx")
+    implementation("com.google.firebase:firebase-firestore-ktx")
+
+    //Google service
+    implementation("com.google.android.gms:play-services-auth:20.7.0")
+
 }

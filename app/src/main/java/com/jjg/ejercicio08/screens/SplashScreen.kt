@@ -26,13 +26,13 @@ import com.jjg.ejercicio08.Screens
 import kotlinx.coroutines.delay
 
 @Composable
-fun SplashScreen(navController: NavController){
-    val color= MaterialTheme.colorScheme.primary
-    val scale= remember {
+fun SplashScreen(navController: NavController) {
+    val color = MaterialTheme.colorScheme.primary
+    val scale = remember {
         androidx.compose.animation.core.Animatable(0f)
     }
 
-    LaunchedEffect(key1 = true){
+    LaunchedEffect(key1 = true) {
         //animacion
         scale.animateTo(
             targetValue = 0.9f,
@@ -57,23 +57,23 @@ fun SplashScreen(navController: NavController){
         border = BorderStroke(width = 2.dp, color = color)
     ) {
         Column(
-            modifier= Modifier
+            modifier = Modifier
                 .padding(1.dp),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text ="IES PDV",
+                text = "IES PDV",
                 style = MaterialTheme.typography.titleLarge,
-                color= color.copy(alpha = 0.5f)
+                color = color.copy(alpha = 0.5f)
             )
 
             Spacer(modifier = Modifier.height(15.dp))
 
             Text(
-                text ="2º DAM",
+                text = "2º DAM",
                 style = MaterialTheme.typography.titleMedium,
-                color= color.copy(alpha = 0.5f)
+                color = color.copy(alpha = 0.5f)
             )
         }
     }

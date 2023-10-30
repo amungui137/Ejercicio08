@@ -11,21 +11,21 @@ import com.jjg.ejercicio08.Screens
 
 
 @Composable
-fun Navigation(){
-    val navController= rememberNavController()
+fun Navigation() {
+    val navController = rememberNavController()
     NavHost(
-        navController=navController,
+        navController = navController,
         startDestination = Screens.SplashScreen.name
-    ){
-        composable(Screens.SplashScreen.name){
+    ) {
+        composable(Screens.SplashScreen.name) {
             SplashScreen(navController = navController)
         }
 
-        composable(Screens.LoginScreen.name){
+        composable(Screens.LoginScreen.name) {
             LoginScreen(navController = navController)
         }
 
-        composable(Screens.HomeScreen.name){
+        composable(Screens.HomeScreen.name) {
             Home(navController = navController)
         }
     }

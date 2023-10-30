@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "172364522841",
+    "project_id": "ejercicio08-ad364",
+    "storage_bucket": "ejercicio08-ad364.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:172364522841:android:d6c941a237216aab579848",
+        "android_client_info": {
+          "package_name": "com.jjg.ejercicio08"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "172364522841-o8imo3rbpfbk595biurlufpb7vn4ojus.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jjg.ejercicio08",
+            "certificate_hash": "b935f652a97392492c81a1383df0f3d3fd574933"
+          }
+        },
+        {
+          "client_id": "172364522841-k3mbq744id9c4e8mg6v30437cb65t42r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9a3hof0NHM-bgBHY64nLfHJqkTduHPwI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "172364522841-k3mbq744id9c4e8mg6v30437cb65t42r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
